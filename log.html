@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>首页</title>
+<style>
+	ul{
+	list-style: none;
+	}
+	*{
+			margin: 0;
+			padding: 0;
+		}
+	#tab{
+		margin: 20px auto;
+		width: 403px;
+		border-top: none;
+		}
+	.list ul{
+		overflow: hidden;
+		padding-top: 100px;
+		height: 54px;
+		}
+	.list li{
+		float: left;
+		}
+	.list li{
+		padding-left: 28px;
+		padding-right: 28px;
+		padding-top: 6px;
+		padding-bottom: 6px;
+		border: 1px solid #ccc;
+		width:77px;
+		height: 40px;
+		background: -moz-linear-gradient(top, #FEFEFE, #EDEDED);
+		background:-webkit-gradient(linear,left top,left bottom, from(#fefefe), to(#ededed));
+		border-right: none;
+		cursor: pointer;
+	}
+	#listCon{
+		height: 350px;
+		background-color: ghostwhite;
+		opacity: 0.7;
+		
+	}
+	#listCon div{
+		padding:10px;
+		position:absolute;
+		display: none;
+		/* opacity:0;
+		filter:alpha(opacity=0); */
+	
+	}
+	
+	
+	.list li:first-child{
+		border-left: none;
+	}
+	.list li:hover{
+		background: #fff;
+		border-bottom: none;
+	}
+	.list li.act{
+		background:#83c331;
+		color:#fff;
+		border-bottom: none;
+	}
+	#listCon div.act{
+		/* opacity:1;
+		filter:alpha(opacity=100); */
+	    display: block;
+	}
+   .act{
+    align-items: center;
+	
+}
+</style>
+	<style>
+	    *{
+	        margin: 0;
+	        padding: 0
+	    }
+	    .div{
+	        width: 100%;
+	        height:700px;
+	        background-repeat: no-repeat;
+	        background-image: url(img/bg-img/bg1.jpg);
+	        animation:frams 15s infinite;
+	    }
+	    @keyframes frams {
+	        0%{
+	            background-image: url(img/bg-img/bg2.jpg);background-size: 100% 100%;background-repeat: no-repeat
+	        }
+	        33%{
+	            background-image: url(img/bg-img/bg3.jpg);background-size: 100% 100%;background-repeat: no-repeat
+	        }
+	        66%{
+	            background-image: url(img/bg-img/bg1.jpg);background-size: 100% 100%;background-repeat: no-repeat
+	        }
+	        100%{
+	            background-image: url(img/bg-img/bg3.jpg);background-size: 100% 100%;background-repeat: no-repeat
+	        }
+	    }
+	</style>
+	<script src="./js/jquery/jquery-2.2.4.min.js"></script>
+	</head>
+	<body class="div">	
+		<div id="tab">
+				<div class="list" align="center">
+					<ul>
+						<li class="act"><p style="text-align: center;margin-top: 8px;">学生</p></li>
+						<li ><p style="text-align: center;margin-top: 8px;">教师</p></li>
+						<li><p style="text-align: center;margin-top: 8px;">管理员</p></li>
+					</ul>
+				</div>
+				<div id="listCon">
+					<div class="act" align="center" >
+						<form onsubmit="false"><br/><br/>
+						学&nbsp;&nbsp;&nbsp;号：<input type="text" name="susername" placeholder="请输入学号" style="height: 30px;width: 200px;"  id="stu-uname"/><br/><br/>
+						密&nbsp;&nbsp;&nbsp;码：<input type="text" name="spassword" placeholder="请输入密码"style="height: 30px;width: 200px;"  id="stu-pwd"/><br/><br/>
+						验证码：<input type="text"  name="code" style="width: 130px;height: 30px;" value="输入验证码"/>
+						<img src="img/captcha.jpg" title="点击更换" alt="验证码占位图"/><br/><br/><br/>
+						  <input type="checkbox" name="remember">
+						  <label>记住密码</label><br/><br/>
+						<input type="button" value="登录" 
+						style="color: white;background-color: orange;width: 370px;height: 46px;" onclick="stuonk()"/>
+						</form>
+					</div>	
+					<div class="teacher-login" align="center"><br/><br/>
+					  
+					  <form onsubmit="false">
+						  
+							工&nbsp;&nbsp;&nbsp;号：<input type="text"  name="tusername" placeholder="请输入工号" style="height: 30px;width: 200px;" id="t-uname"/><br/><br/>
+							密&nbsp;&nbsp;&nbsp;码：<input type="text" name="tpassword"  placeholder="请输入密码" style="height: 30px;width: 200px;" id="t-pwd"/><br/><br/>
+							验证码：<input type="text"  name="code" style="width: 130px;height: 30px;" value="输入验证码"/>
+							<img src="img/captcha.jpg" title="点击更换" alt="验证码占位图"/><br/><br/><br/>
+							<input type="checkbox" name="remember">
+							<label>记住密码</label><br/><br/>
+							<input type="button" value="登录"
+							 style="color: white;background-color: orange;width: 370px;height: 46px;" onclick="tonk()"/>
+						</form>
+						</div>
+						
+						
+					<div class="admin-login" align="center"><br/><br/>
+					<form >
+							账&nbsp;&nbsp;&nbsp;号：<input type="text" name="ausername" placeholder="请输入账号" style="height: 30px;width: 200px;" id="adm-uname"/><br/><br/>
+							密&nbsp;&nbsp;&nbsp;码：<input type="password" name="apassword" placeholder="请输入密码" style="height: 30px;width: 200px;"id="adm-upwd"/><br/><br/>
+							验证码：<input type="text" name="code" style="width: 130px;height: 30px;" value="输入验证码"/>
+							<img src="img/captcha.jpg" title="点击更换" alt="验证码占位图"/><br/><br/><br/>
+							<input type="checkbox" name="remember">
+							<label>记住密码</label><br/><br/>
+							<input type="submit" value="登录" 
+							style="color: white;background-color: orange;width: 370px;height: 46px;" onclick="onk()"/>
+						</form>
+					</div>
+			</div>
+		</div>
+		<script>
+			window.onload = function(){
+						var oDiv = document.getElementById("tab");
+						var lis = oDiv.getElementsByTagName("li");
+						var oDivCon = document.getElementById("listCon");
+						var lisDiv = oDivCon.getElementsByTagName("div");			
+						for(var i=0;i<lis.length;i++){
+							lis[i].index = i;
+							lis[i].onmouseover = function(){
+								show(this.index);
+							}
+						}
+						function show(a){
+							for(var j=0;j<lis.length;j++){
+								lis[j].className = "";
+								lisDiv[j].className = "";					
+							}
+							lis[a].className = "act";
+							lisDiv[a].className = "act";
+						}
+					}	
+		</script>
+	<script>
+		
+		//发送异步请求，接收JSON格式的数据
+		//JS/Jquery
+		//------点击submit按钮
+		$("button").click(function(e){
+			e.preventDefault();
+			$.ajax({
+				url:"http://localhost:8080/xuanke/validate",
+				// url:"http://192.168.56.1:8080/chooseCourse/validate",
+				type:"post",
+				//获取input的value---jquery
+				// data:$('form').serialize(),
+				data:$("#adm-uname").val(),
+				dataType:"json",
+				success:function(info){
+					alert(info);
+				}
+			});
+		});	
+	</script>
+	<!-- 学生密码判断 -->
+	<script type="text/javascript">
+	//函数onk，在html中绑定
+			function stuonk(){
+	//id获取文档			
+				var user1 = document.getElementById("stu-uname").value;
+				var pwd1= document.getElementById("stu-pwd").value;
+		
+	//获得焦点，边框变为蓝色
+				onk.onfocus = function(){
+					this.style.borderColor="blue";
+				}
+	//失去焦点，边框变为黑色			
+				onk.onblur = function(){
+					this.style.borderColor="#000000";
+				}
+	//判断用户名是否为空			
+				if(user1.trim() == "" || pwd1.trim() == ""){
+					alert("用户和密码不能为空");
+	//判断用户名长度				
+				}
+				else if(user1.length < 4 || user1.length > 6){
+					alert("用户名长度是4---6位哦");
+	//判断密码长度				
+				}else if(pwd1.length < 4 || pwd1.length > 6){
+					alert("密码长度是4---6位哦");	
+				}	
+			}
+		</script>
+	<!-- 教师密码判断 -->
+	<script type="text/javascript">
+	//函数onk，在html中绑定
+			function tonk(){
+	//id获取文档			
+				var user2 = document.getElementById("t-uname").value;
+				var pwd2= document.getElementById("t-pwd").value;
+		
+	//获得焦点，边框变为蓝色
+				onk.onfocus = function(){
+					this.style.borderColor="blue";
+				}
+	//失去焦点，边框变为黑色			
+				onk.onblur = function(){
+					this.style.borderColor="#000000";
+				}
+	//判断用户名是否为空			
+				if(user2.trim() == "" || pwd2.trim() == ""){
+					alert("用户和密码不能为空");
+	//判断用户名长度				
+				}else if(user2.length < 6 || user2.length > 10){
+					alert("用户名长度是6---10位哦");
+	//判断密码长度				
+				}else if(pwd2.length < 6 || pwd2.length > 10){
+					alert("密码长度是6---10位哦");	
+				}	
+			}
+		</script>
+	<!-- 管理员密码判断 -->
+	<script type="text/javascript">
+	//函数onk，在html中绑定
+			function onk(){
+	//id获取文档			
+				var user3 = document.getElementById("adm-uname").value;
+				var pwd3= document.getElementById("adm-upwd").value;
+		
+	//获得焦点，边框变为蓝色
+				onk.onfocus = function(){
+					this.style.borderColor="blue";
+				}
+	//失去焦点，边框变为黑色			
+				onk.onblur = function(){
+					this.style.borderColor="#000000";
+				}
+	//判断用户名是否为空			
+				if(user3.trim() == "" || pwd3.trim() == ""){
+					alert("用户和密码不能为空");
+	//判断用户名长度				
+				}else if(user3.length < 8 || user3.length > 24){
+					alert("用户名长度是8---24位哦");
+	//判断密码长度				
+				}else if(pwd3.length < 6 || pwd3.length > 15){
+					alert("密码长度是6---15位哦");	
+				}	
+			}
+		</script>
+	</body>
+</html>
+
